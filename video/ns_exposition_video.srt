@@ -1,0 +1,348 @@
+1
+00:00:00,500 --> 00:00:06,260
+This video is a companion to the essay, How a Forced Navier–Stokes Flow Blows Up.
+
+2
+00:00:06,610 --> 00:00:17,458
+It explains, step by step, the finite-time blowup construction that OpenAI released in September 2026 for the three-dimensional Navier–Stokes equations.
+
+3
+00:00:17,808 --> 00:00:22,920
+All of the mathematics is due to the authors of that paper. This is an exposition.
+
+4
+00:00:24,320 --> 00:00:29,360
+The Navier–Stokes equations describe a viscous, incompressible fluid.
+
+5
+00:00:29,710 --> 00:00:37,894
+The velocity u changes because of transport by the flow itself, viscosity, the pressure gradient, and an external force f.
+
+6
+00:00:38,244 --> 00:00:42,684
+Fefferman's official Clay problem statement offers four alternatives.
+
+7
+00:00:43,034 --> 00:00:49,778
+A and B ask for global smooth solutions without any force, on the whole space or on the torus.
+
+8
+00:00:50,128 --> 00:01:00,736
+C and D ask instead for a breakdown: smooth, rapidly decaying data and force for which no smooth solution with bounded energy exists for all time.
+
+9
+00:01:01,086 --> 00:01:04,950
+The important detail is that C and D allow a force.
+
+10
+00:01:06,350 --> 00:01:07,670
+Here is the theorem.
+
+11
+00:01:08,020 --> 00:01:17,212
+For every positive viscosity, there is a smooth force, compactly supported in space and time, and a flow that starts from rest.
+
+12
+00:01:17,562 --> 00:01:27,186
+Its velocity and pressure stay inside a fixed compact set, its energy stays bounded, and its maximum speed becomes infinite at time one.
+
+13
+00:01:27,536 --> 00:01:34,232
+So no global smooth solution with bounded energy exists for that force. This is alternative C.
+
+14
+00:01:34,582 --> 00:01:40,318
+A rescaling and periodization argument then gives alternative D on the torus.
+
+15
+00:01:40,668 --> 00:01:46,140
+Two caveats matter. The unforced questions, A and B, are untouched.
+
+16
+00:01:46,490 --> 00:01:54,578
+And as of this recording, the result has not been independently peer reviewed, although a Lean formalization has been released.
+
+17
+00:01:55,978 --> 00:01:57,826
+Why are three dimensions hard?
+
+18
+00:01:58,176 --> 00:02:04,680
+The equations have a scaling symmetry: zooming in by a factor lambda maps solutions to solutions.
+
+19
+00:02:05,030 --> 00:02:09,110
+Under this scaling the energy shrinks by a factor of lambda.
+
+20
+00:02:09,460 --> 00:02:18,004
+Zooming into small scales therefore weakens the only global bound we have, so energy alone cannot rule out concentration.
+
+21
+00:02:18,354 --> 00:02:27,498
+Leray built global weak solutions in 1934, and Caffarelli, Kohn and Nirenberg showed that the singular set must be small.
+
+22
+00:02:27,848 --> 00:02:31,616
+Tao showed that an averaged version of the equations can blow up.
+
+23
+00:02:31,966 --> 00:02:39,406
+Córdoba, Martínez-Zoroa and coauthors built forced singularities for Euler and for hypodissipative models.
+
+24
+00:02:39,756 --> 00:02:45,852
+The new work follows this forced line, but at full viscosity, and with a smooth force.
+
+25
+00:02:47,252 --> 00:02:49,916
+The first idea is almost a tautology.
+
+26
+00:02:50,266 --> 00:03:02,290
+Take any smooth, incompressible velocity and pressure, and compute the momentum residual: the time derivative, plus transport, minus viscosity, plus the pressure gradient.
+
+27
+00:03:02,640 --> 00:03:09,624
+Call the result f. Then the pair solves Navier–Stokes with force f. Every flow is a forced flow.
+
+28
+00:03:09,974 --> 00:03:13,142
+So the whole difficulty moves into one question.
+
+29
+00:03:13,492 --> 00:03:21,604
+Can we design a flow that blows up, while its residual, and every derivative of it, extends smoothly through the singular time?
+
+30
+00:03:21,954 --> 00:03:27,522
+Each term in the residual blows up on its own, so they must cancel to infinite order.
+
+31
+00:03:27,872 --> 00:03:38,648
+The paper states this as a flatness estimate: every derivative of the residual is smaller than every power of q, a scale that measures the distance to the singular point.
+
+32
+00:03:40,048 --> 00:03:46,648
+Here is the flow. Use cylindrical coordinates around a vertical axis, and let tau be the time remaining.
+
+33
+00:03:46,998 --> 00:03:53,646
+In a central core, fluid spirals inward and leaves along the axis, upward and downward.
+
+34
+00:03:53,996 --> 00:04:04,796
+Inflow conserves angular momentum, so the fluid spins faster. Viscosity carries angular momentum back out, and the speed grows as the balance between the two.
+
+35
+00:04:05,146 --> 00:04:09,634
+Around the core sits an annulus, where oscillating pulses will live.
+
+36
+00:04:09,984 --> 00:04:17,736
+Outside is a purely rotating exterior that solves the heat equation for the swirl exactly, so it needs no force at all.
+
+37
+00:04:18,086 --> 00:04:30,470
+The core is anisotropic. Its radius shrinks like tau to the one half, while its height shrinks more slowly, like tau to the one half minus h, where h is a fixed number below one hundredth.
+
+38
+00:04:30,820 --> 00:04:33,676
+So the core becomes an ever thinner column.
+
+39
+00:04:35,076 --> 00:04:38,988
+The speeds grow like tau to the minus one half minus h.
+
+40
+00:04:39,338 --> 00:04:47,426
+Multiply by the core volume, and the kinetic energy scales like tau to the one half minus three h, which goes to zero.
+
+41
+00:04:47,776 --> 00:04:57,040
+The dissipation rate scales like tau to the minus one half minus three h, which is integrable in time because h is less than one sixth.
+
+42
+00:04:57,390 --> 00:05:00,294
+So the blowup is invisible to the energy.
+
+43
+00:05:00,644 --> 00:05:07,844
+But the critical quantity, the square root of tau times the maximum speed, grows like tau to the minus h.
+
+44
+00:05:08,194 --> 00:05:16,834
+The swirl Reynolds number diverges, while the radial Reynolds number stays bounded, so viscosity remains in the leading balance.
+
+45
+00:05:18,234 --> 00:05:24,762
+The core balances its own momentum, and so does the heat exterior. The trouble is where they meet.
+
+46
+00:05:25,112 --> 00:05:32,888
+In the annulus, the background leaves a residual that becomes unbounded at time one, so it cannot serve as the force.
+
+47
+00:05:33,238 --> 00:05:43,894
+The paper writes that residual as the radial divergence of a stress T, with two components: the radial flux of swirl momentum, and the radial flux of axial momentum.
+
+48
+00:05:44,244 --> 00:05:52,620
+The annulus does not need momentum injected. It needs momentum moved radially, and a stress is exactly a momentum flux.
+
+49
+00:05:52,970 --> 00:06:05,186
+The profiles are tuned, by matching five radial integrals and by adding a small logarithmic oscillation, so that this stress vanishes outside the annulus and has the right shape for the next step.
+
+50
+00:06:06,586 --> 00:06:12,010
+Now the key mechanism. Add an oscillating velocity w on top of the background.
+
+51
+00:06:12,360 --> 00:06:20,856
+The residual picks up a linear term, and a quadratic term: the divergence of w tensor w. That is a Reynolds stress.
+
+52
+00:06:21,206 --> 00:06:27,302
+Take a single plane wave: a cosine, with amplitude a perpendicular to its wave vector.
+
+53
+00:06:27,652 --> 00:06:35,188
+It is exactly incompressible, it does not interact with itself, and its average stress is one half of a tensor a.
+
+54
+00:06:35,538 --> 00:06:41,226
+With a slowly varying amplitude, the averaged stress becomes a force we can prescribe.
+
+55
+00:06:41,576 --> 00:06:49,040
+Each family of waves contributes one fixed direction, weighted by a squared, and therefore positive, amplitude.
+
+56
+00:06:49,390 --> 00:06:59,518
+With two families, any target inside the cone they span can be produced. That is the admissible stress cone condition, and the profiles were built to satisfy it.
+
+57
+00:07:00,918 --> 00:07:04,614
+Where do the pulses get their energy? From the background shear.
+
+58
+00:07:04,964 --> 00:07:11,156
+A toy model shows the centrifugal part. A parcel carrying extra swirl is flung outward.
+
+59
+00:07:11,506 --> 00:07:20,482
+If angular momentum decreases outward, the parcel lands among slower fluid, and its surplus grows. This is Rayleigh's criterion.
+
+60
+00:07:20,832 --> 00:07:25,752
+Each pulse is seeded by an exponentially small force, and then amplified.
+
+61
+00:07:26,102 --> 00:07:35,294
+Differential rotation tilts the wave fronts, so the radial wavenumber grows. Amplification weakens while viscous damping strengthens.
+
+62
+00:07:35,644 --> 00:07:39,772
+So each pulse rises and then decays within a short window.
+
+63
+00:07:40,122 --> 00:07:48,954
+Pulses are placed on finer and finer scales as time approaches one, and an auxiliary torus variable keeps distinct pulses from interacting.
+
+64
+00:07:50,354 --> 00:07:59,906
+The pulses cancel the leading stress, but they leave errors: linear terms, harmonics, mean flows, and curl and cutoff terms.
+
+65
+00:08:00,256 --> 00:08:03,856
+The paper runs a correction cycle with four operations.
+
+66
+00:08:04,206 --> 00:08:13,950
+It solves the wave amplitude equations, adjusts the amplitudes to fix the averaged stress, corrects the mean flow, and restores the radial moments.
+
+67
+00:08:14,300 --> 00:08:18,452
+After every operation, the full residual is recomputed.
+
+68
+00:08:18,802 --> 00:08:24,634
+Each cycle improves the decay exponent sigma by one tenth, starting from one fifth.
+
+69
+00:08:24,984 --> 00:08:31,800
+The infinitely many corrections are then summed, with cutoffs whose supports shrink toward the singular point.
+
+70
+00:08:32,150 --> 00:08:40,022
+The result is a flow whose residual is flat: smaller than every power of q, together with all of its derivatives.
+
+71
+00:08:41,422 --> 00:08:43,366
+Five steps finish the proof.
+
+72
+00:08:43,716 --> 00:08:53,340
+First, multiply the vector potential and the pressure by a cutoff, and take the curl afterwards, so the flow stays incompressible and compactly supported.
+
+73
+00:08:53,690 --> 00:09:01,874
+Second, every derivative of the force has a limit at time one, so a Borel-type lemma extends the force smoothly beyond it.
+
+74
+00:09:02,224 --> 00:09:08,248
+Third, pairing the equation with u bounds the energy by the square of the integrated force.
+
+75
+00:09:08,598 --> 00:09:22,446
+Fourth, a uniqueness argument, which controls the pressure through Riesz transforms, shows that any smooth bounded-energy solution with the same data coincides with this flow before time one, so it must blow up as well.
+
+76
+00:09:22,796 --> 00:09:29,996
+Fifth, rescaling handles every viscosity, and periodizing a shrunken copy gives the torus case.
+
+77
+00:09:31,396 --> 00:09:41,116
+The Lean formalization states alternatives C and D in Lean 4, adapting Google DeepMind's Formal Conjectures statement of Fefferman's problem.
+
+78
+00:09:41,466 --> 00:09:51,618
+The challenge file defines the decay conditions, smoothness, the equation, incompressibility and bounded energy, and leaves the two theorems unproved.
+
+79
+00:09:51,968 --> 00:10:03,608
+The repository proves them, and the Comparator configuration permits only the three standard axioms: propositional extensionality, quotient soundness, and classical choice.
+
+80
+00:10:03,958 --> 00:10:08,806
+What does this certify? That the stated theorems follow from Lean and Mathlib.
+
+81
+00:10:09,156 --> 00:10:17,292
+Whether the formal statement faithfully matches the Clay text is a human question, and the definitions are short enough to check by reading.
+
+82
+00:10:17,642 --> 00:10:20,258
+We did not rebuild the project ourselves.
+
+83
+00:10:21,658 --> 00:10:22,858
+To summarize.
+
+84
+00:10:23,208 --> 00:10:30,960
+Collapse an anisotropic vortex. Let amplified pulses supply its missing momentum flux through their Reynolds stress.
+
+85
+00:10:31,310 --> 00:10:41,006
+Correct to infinite order, so that the leftover force is smooth through the singular time. Then localize, extend the force, and prove uniqueness.
+
+86
+00:10:41,356 --> 00:10:50,380
+The unforced problems, A and B, remain open, and independent review of the 166-page argument is still pending.
+
+87
+00:10:50,730 --> 00:10:58,386
+The essay, with section references, scale checks, and a reading map, is linked in the description. Thank you for watching.
+

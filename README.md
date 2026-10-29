@@ -5,7 +5,10 @@ three-dimensional incompressible Navier–Stokes equations.
 
 **[Read the PDF](ns_exposition.pdf)** (15 pages) · LaTeX source: [`ns_exposition.tex`](ns_exposition.tex)
 
-Author: Thanh Van Nguyen · Version 1.0 · 29 October 2026
+**[Watch the video](https://github.com/Thanh-Van-2001/navier-stokes-blowup-exposition/releases/download/v1.1/ns_exposition_video.mp4)**
+(11 min, narrated, English subtitles) · [slides](video/slides.pdf) · [subtitles](video/ns_exposition_video.srt)
+
+Author: Thanh Van Nguyen · Essay v1.0 · Video v1.1 · 29 October 2026
 
 ## Scope
 
@@ -55,10 +58,19 @@ The exposition was prepared with the assistance of an AI system (Claude, Anthrop
 Every statement attributed to the source paper was checked against the pinned
 PDF and repository.
 
+## Video
+
+The companion video walks through the same argument in 14 slides. Narration is
+synthesized speech (Microsoft Edge neural voice, `en-US-AndrewNeural`, via `edge-tts`),
+and the subtitles are burned in. The script is in [`video/narration.py`](video/narration.py).
+
 ## Building
 
 ```sh
 latexmk -pdf ns_exposition.tex
+cd video && latexmk -pdf slides.tex
+# render slides.pdf to frames/sNN.png (1920x1080), then:
+python build_video.py
 ```
 
 ## Citation

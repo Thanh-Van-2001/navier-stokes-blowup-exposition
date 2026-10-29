@@ -5,3 +5,10 @@
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+*.mp4
+*.wav
+*.mp3
+video/tts/
+video/segments/
+video/frames/
+*.ffconcat

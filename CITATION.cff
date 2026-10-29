@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this exposition, please cite it as below."
+title: "How a Forced Navier–Stokes Flow Blows Up: A guided exposition of OpenAI's finite-time blowup construction"
+type: report
+authors:
+  - family-names: Nguyen
+    given-names: Thanh Van
+version: "1.0"
+date-released: "2026-10-29"
+license: CC-BY-4.0
+repository-code: "https://github.com/Thanh-Van-2001/navier-stokes-blowup-exposition"
+keywords:
+  - Navier–Stokes
+  - finite-time blowup
+  - Millennium Prize Problems
+  - exposition
+  - Lean
